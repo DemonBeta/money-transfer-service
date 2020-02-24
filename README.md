@@ -10,11 +10,11 @@
 - Javalin - lightweight web framework
 
 ### How to run
-Build jar file
+Build jar file by executing mvn command from project root directory
 ```sh
 mvn clean generate-sources package
 ```
-and then run it
+and then run jar file
 ```sh
 java -jar -Dport=8080 ./target/transfer.jar
 ```
