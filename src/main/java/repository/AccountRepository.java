@@ -42,8 +42,16 @@ public class AccountRepository implements Repository {
     }
 
     @Override
-    public int updateAccount(AccountsRecord record) {
-        return record.store();
+    public int updateAccounts(AccountsRecord from, AccountsRecord to) {
+        return getContext().transactionResult(configuration -> {
+            int result = 0;
+
+            DSLContext ctx = DSL.using(configuration);
+            result += ctx.executeUpdate(from);
+            result += ctx.executeUpdate(to);
+
+            return result;
+        });
     }
 
     @SneakyThrows

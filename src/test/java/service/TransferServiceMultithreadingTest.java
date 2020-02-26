@@ -32,7 +32,7 @@ public class TransferServiceMultithreadingTest {
         FlywayUtils.clean();
     }
 
-    @Test
+    @Test(timeout = 30000)
     public void multithreadingTest() {
         BigDecimal amount = new BigDecimal(10L);
         long fromId = 3L;

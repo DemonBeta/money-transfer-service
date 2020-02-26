@@ -55,7 +55,7 @@ public class App {
         });
         javalin.exception(TransferException.class, (e, ctx) -> {
             ctx.result(e.getMessage());
-            ctx.status(HttpStatus.FORBIDDEN_403);
+            ctx.status(HttpStatus.BAD_REQUEST_400);
         });
     }
 }

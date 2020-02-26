@@ -31,9 +31,11 @@ public interface Repository {
     AccountsRecord findAccount(long accountId);
 
     /**
-     * Updates account record
-     * @param record new account record
+     * Updates account records information in one transaction. Use for money transfer.
+     *
+     * @param from modified account record
+     * @param to modified account record
      * @return number of updated rows
      */
-    int updateAccount(AccountsRecord record);
+    int updateAccounts(AccountsRecord from, AccountsRecord to);
 }

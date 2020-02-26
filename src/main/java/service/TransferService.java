@@ -91,8 +91,7 @@ public class TransferService {
             }
             fromAccount.setBalance(fromAccount.getBalance().subtract(amount));
             toAccount.setBalance(toAccount.getBalance().add(amount));
-            repository.updateAccount(fromAccount);
-            repository.updateAccount(toAccount);
+            repository.updateAccounts(fromAccount, toAccount);
         } finally {
             lockFromAccount.unlock();
             lockToAccount.unlock();
